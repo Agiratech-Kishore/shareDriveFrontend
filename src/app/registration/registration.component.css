@@ -1,0 +1,107 @@
+/* Base styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container-fluid {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 15px;
+}
+
+/* Main content and form styling */
+.main-content {
+    width: 50%;
+    border-radius: 20px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+    margin: 5em auto;
+    display: flex;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+.company__info {
+    background-color: #008080;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    width: 100%; /* Full width on smaller screens */
+    max-width: 400px; /* Adjust based on preference */
+}
+
+.registration_form {
+    flex: 1; /* Take up remaining space */
+    background-color: #fff;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 2em;
+}
+
+.fa-android {
+    font-size: 3em;
+}
+
+h2 {
+    color: #008080;
+}
+
+.form__input {
+    width: 100%;
+    border: 0px solid transparent;
+    border-bottom: 1px solid #aaa;
+    padding: 1em .5em .5em;
+    padding-left: 2em;
+    outline: none;
+    margin: 1.5em auto;
+    transition: all .5s ease;
+}
+
+.form__input:focus {
+    border-bottom-color: #008080;
+    box-shadow: 0 0 5px rgba(0,80,80,0.4); 
+    border-radius: 4px;
+}
+
+.btn {
+    transition: all .5s ease;
+    width: 70%;
+    border-radius: 30px;
+    color: #008080;
+    font-weight: 600;
+    background-color: #fff;
+    border: 1px solid #008080;
+    margin-top: 1.5em;
+    cursor: pointer; /* Ensure it looks clickable */
+}
+
+.btn:hover, .btn:focus {
+    background-color: #008080;
+    color: #fff;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 640px) {
+    .main-content {
+        width: 90%;
+        margin: 2em auto;
+    }
+
+    .company__info, .registration_form {
+        width: 100%;
+    }
+
+    .company__info {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 642px) and (max-width: 800px) {
+    .main-content {
+        width: 70%;
+    }
+}

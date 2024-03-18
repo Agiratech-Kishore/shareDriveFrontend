@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./dashboard.component.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Agira ShareDrive</h1>
+        <div class="menu">
+            <a href="profile.html" class="menu-link">Profile</a>
+            <button class="menu-button" id="create-ride" routerLink="/create-ride">Create Ride</button>
+            <a href="driver-rides.html" class="menu-link">Rides As Driver</a>
+            <a href="passenger-rides.html" class="menu-link">Rides As Passenger</a>
+            <a href="ride-requests.html" class="menu-link">Ride Requests</a>
+            <form id="search-form">
+                <input type="text" id="origin" placeholder="Origin">
+                <input type="text" id="destination" placeholder="Destination">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div id="available-rides" class="rides-list">
+            <h2>Available Rides</h2>
+            <table id="available-rides" class="rides-list">
+                <th>Ride id</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Available Seats</th>
+                <th>Driver </th>
+              <tbody>
+                <tr *ngFor="let ride of rides">
+                  <td>{{ ride.id }}</td>
+                  <td>{{ ride.origin }}</td>
+                  <td>{{ ride.destination }}</td>
+                  <td>{{ ride.date }}</td>
+                  <td>{{ ride.time }}</td>
+                  <td>{{ ride.availableSeats }}</td>
+                  <td><button type="button" value="{{ ride.driverId }}" > Driver</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+</body>
+</html>
+
