@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { RegistrationService } from '../registration.service';
 import { Router } from '@angular/router';
 import { User } from '../user';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registration',
@@ -12,7 +13,7 @@ import { User } from '../user';
 export class RegistrationComponent implements OnInit{
   user = new User();
   msg='';
-  constructor(private _service : RegistrationService,private _router:Router){
+  constructor(private _service : RegistrationService,private _router:Router,private toastr: ToastrService){
 
   }
   ngOnInit(): void {
@@ -21,12 +22,12 @@ export class RegistrationComponent implements OnInit{
   registerUser(){
     this._service.registerUserFromRemote(this.user).subscribe(
       data=>{
-        console.log("response received");
         this.msg="Registration successful";
+        this.toastr.success("Registered Successfully")
         this._router.navigate(['./login'])
       },
       error=>{
-        console.log("exception occurred");
+        this.toastr.error("Error creating account")
         this.msg=error.error;
       }
     )

@@ -1,0 +1,88 @@
+General Reset
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.request-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.request-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.request-details {
+    display: flex;
+}
+
+.user-details, .ride-details {
+    margin-right: 20px;
+}
+
+.user-details p, .ride-details p {
+    margin: 5px 0;
+}
+
+.user-details p strong, .ride-details p strong {
+    margin-right: 5px;
+    color: #007BFF;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.accept-btn, .deny-btn {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.accept-btn {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.deny-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+.back-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+.back-button:hover {
+    background-color: #0056b3;
+}

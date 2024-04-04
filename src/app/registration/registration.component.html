@@ -1,54 +1,28 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Page</title>
-</head>
-<body>
-    <div class="container-fluid">
-        <div class="row main-content bg-success text-center">
-            <div class="col-md-4 text-center company__info">
-                <span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
-                <h4 class="company_title">Agira share drive</h4>
+<div class="container">
+    <div class="form-container">
+        <h2>Register</h2>
+        <form #registrationform="ngForm" (ngSubmit)="registerUser()">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Name" [(ngModel)]="user.name" required>
             </div>
-            <div class="col-md-8 col-xs-12 col-sm-12 registration_form">
-                <div class="container-fluid">
-                    <div class="row">
-                        <h2>Register</h2>
-                    </div>
-                    <div class="row">
-                        <form #registrationform="ngForm" (ngSubmit)="registerUser()" class="form-group">
-
-                            <div class="row">
-                                <input type="text" name="name" id="name" class="form__input" placeholder="Name" [(ngModel)]="user.name" required>
-                            </div>
-                            <div class="row">
-                                <input type="email" name="email" id="email" class="form__input" placeholder="Email" [(ngModel)]="user.email" required>
-                            </div>
-                            <div class="row">
-                                <input type="number" name="age" id="age" class="form__input" placeholder="Age" [(ngModel)]="user.age" required>
-                            </div>
-                            <div class="row">
-                                <input type="tel" name="mobile_number" id="mobile_number" class="form__input" placeholder="Mobile Number" [(ngModel)]="user.mobileNumber" required>
-                            </div>
-                            <div class="row">
-                                <input type="password" name="password" id="password" class="form__input" placeholder="Password" [(ngModel)]="user.password" required>
-                            </div>
-                            <div class="row">
-                                <input type="submit" value="Register" class="btn">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="row" >
-                        <p>Already have an account? <a routerLink="/login">Login Here</a></p>
-                    </div>
-                </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" [(ngModel)]="user.email" required>
             </div>
+            <div class="form-group">
+                <input type="number" name="age" placeholder="Age" [(ngModel)]="user.age" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="mobile_number" placeholder="Mobile Number" [(ngModel)]="user.mobileNumber" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password" [(ngModel)]="user.password" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+        <div class="form-footer">
+            <p>Already have an account? <a routerLink="/login">Login Here</a></p>
         </div>
     </div>
-    <!-- Footer -->
-    <div class="container-fluid text-center footer">
-       
-    </div>
-</body>
-</html>
+</div>

@@ -1,0 +1,32 @@
+<body>
+    <div class="container">
+        <h1>Ride Requests</h1>
+        <div class="request-list">
+            <div class="request-item" *ngFor="let request of rideRequests">
+                <div class="user-details">
+                    <p><strong>Name:</strong> {{ request.userName}}</p>
+                    <p><strong>Email:</strong> {{ request.userEmail }}</p>
+                    <p><strong>Age:</strong> {{ request.userAge }}</p>
+                    <p><strong>Mobile Number:</strong> {{ request.userMobile }}</p>
+                </div>
+                <div class="ride-details">
+                    <p><strong>Origin:</strong> {{ request.rideDetails.origin }}</p>
+                    <p><strong>Destination:</strong> {{ request.rideDetails.destination }}</p>
+                    <p><strong>Date:</strong> {{ request.rideDetails.date }}</p>
+                    <p><strong>Time:</strong> {{ request.rideDetails.time }}</p>
+                    <p><strong>Available Seats:</strong> {{ request.rideDetails.availableSeats }}</p>
+                    <p><strong>Posted By:</strong> {{ request.rideDetails.driverName }}</p>
+                </div>
+                <div class="status">
+                    <p><strong>Status:</strong> {{ request.status }}</p>
+                </div>
+                <div class="actions">
+                    <button *ngIf="request.status=='Pending'" class="accept-btn" (click)="acceptRequest(request.id)">Accept</button>
+                    <button *ngIf="request.status=='Pending'" class="deny-btn" (click)="denyRequest(request.id)">Deny</button>
+                </div>
+            </div>
+            <button (click)="goToDashboard()" class="back-button">Back</button>
+        </div>
+    </div>
+</body>
+

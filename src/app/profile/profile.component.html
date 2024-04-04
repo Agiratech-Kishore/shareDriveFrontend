@@ -1,0 +1,39 @@
+<div class="main-content">
+  <div class="user-details" *ngIf="user; else loading">
+    <h2>User Details</h2>
+    <p><strong>ID:</strong> {{user.id}}</p>
+    <p><strong>Name:</strong> {{user.name}}</p>
+    <p><strong>Email:</strong> {{user.email}}</p>
+    <p><strong>Age:</strong> {{user.age}}</p>
+    <p><strong>Mobile Number:</strong> {{user.mobileNumber}}</p>
+    <button class="back-button" (click)="goToDashboard()">Back</button>
+    <button class="list-button" (click)="toggleRideList()">Ride Taker</button>
+    <button class="list-button" (click)="toggleDriverRideList()">Ride Giver</button>
+    <div *ngIf="showRideList">
+      <h3>Ride Taker</h3>
+      <div class="ride-card" *ngFor="let ride of user.rideList">
+        <p><strong>Origin:</strong> {{ride.origin}}</p>
+        <p><strong>Destination:</strong> {{ride.destination}}</p>
+        <p><strong>Date:</strong> {{ride.date}}</p>
+        <p><strong>Status:</strong> {{ride.rideStatus}}</p>
+      </div>
+    </div>
+    <div *ngIf="showDriverRideList">
+      <h3>Ride Giver</h3>
+      <div class="ride-card" *ngFor="let ride of user.rideAsDriverList">
+        <p><strong>Origin:</strong> {{ride.origin}}</p>
+        <p><strong>Destination:</strong> {{ride.destination}}</p>
+        <p><strong>Date:</strong> {{ride.date}}</p>
+        <p><strong>Status:</strong> {{ride.rideStatus}}</p>
+        <!-- Buttons for Completed or Cancelled -->
+        <div>
+          <button class="ride-action-button" (click)="completeRide(ride.id)">Completed</button>
+          <button class="ride-action-button" (click)="cancelRide(ride.id)">Cancelled</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #loading>
+    <p>Loading...</p>
+  </ng-template>
+</div>

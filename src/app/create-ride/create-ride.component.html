@@ -1,38 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Ride</title>
-    <link rel="stylesheet" href="./create-ride.component.css">
-</head>
-<body>
-    <h2>Create Ride</h2>
-    <form (ngSubmit)="createRide()" #createRideForm="ngForm">
-        <label for="userId">User ID:</label>
-        <input type="number" id="userId" name="userId" [(ngModel)]="ride.userId" required><br><br>
-
+<main class="main-content">
+    <div class="create-ride-form">
+      <h2>Create Ride</h2>
+      <form (ngSubmit)="createRide()" #createRideForm="ngForm" class="ride-form">
         <label for="origin">Origin:</label>
         <input type="text" id="origin" name="origin" [(ngModel)]="ride.origin" required><br><br>
-        <small>*Origin is a required field.</small>
-
+  
         <label for="destination">Destination:</label>
         <input type="text" id="destination" name="destination" [(ngModel)]="ride.destination" required><br><br>
-
+  
         <label for="availableSeats">Available Seats:</label>
         <input type="number" id="availableSeats" name="availableSeats" [(ngModel)]="ride.availableSeats" required><br><br>
-
+  
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" [(ngModel)]="ride.date" required><br><br>
-
+  
         <label for="time">Time:</label>
-        <input type="datetime" id="time" name="time" [(ngModel)]="ride.time" required><br><br>
-
-        <label for="vehicleId">Vehicle ID:</label>
-        <input type="number" id="vehicleId" name="vehicleId" [(ngModel)]="ride.vehicleId" required><br><br>
-
+        <input type="time" id="time" name="time" [(ngModel)]="ride.time" required pattern="(?:[01]\d|2[0-3]):(?:[0-5]\d):(?:[0-5]\d)" step="1"><br><br>
+  
+        <label for="vehicleId">Vehicle:</label>
+        <select id="vehicleId" name="vehicleId" [(ngModel)]="ride.vehicleId" required>
+            <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{ vehicle.model }}</option>
+         </select><br><br>
+  
         <button type="submit">Submit</button>
-    </form>
-    <!-- {{ride | json }} -->
-</body>
-</html>
+      </form>
+      <button (click)="goToDashboard()" class="back-button">Back</button>
+    </div>
+  </main>

@@ -8,11 +8,15 @@ import { User } from './user';
 })
 export class RegistrationService {
   public registerUserFromRemote(user: User):Observable<any> {
-    return this._http.post<any>("http://localhost:8080/users",user);
+    return this._http.post<any>("http://localhost:8080/v1/users/register",user);
   }
 
   constructor(private _http : HttpClient) { }
   public loginUserFromRemote(user :User):Observable<any>{
-   return this._http.post<any>("http://localhost:8080/users/login",user)
+   return this._http.post<any>("http://localhost:8080/v1/users/login",user)
+  }
+  
+  public getToken(){
+    return sessionStorage.getItem('authtoken');
   }
 }
